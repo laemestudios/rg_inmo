@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { PROPERTIES_DATA } from '../data/properties';
 import PropertyModal from './PropertyModal';
-import { BedDouble, Bath, Square, MapPin, Eye, ArrowUpDown, LayoutGrid, Map as MapIcon } from 'lucide-react';
+import { BedDouble, Bath, Square, MapPin, Eye, ArrowUpDown, LayoutGrid, Map as MapIcon, Search } from 'lucide-react';
 
 export default function PropertyCatalog({ filters, setFilters, onSelectMortgagePrice }) {
   const [selectedProperty, setSelectedProperty] = useState(null);
@@ -23,23 +23,23 @@ export default function PropertyCatalog({ filters, setFilters, onSelectMortgageP
   }, [filters, sortBy]);
 
   return (
-    <section id="catalogo" className="py-16 bg-sand-50">
+    <section id="catalogo" className="py-16 bg-slate-50">
       <div className="max-w-6xl mx-auto px-4">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-gold-600 mb-1 block">
+            <span className="text-xs font-bold uppercase tracking-widest text-red-600 mb-1 block">
               Catálogo Destacado
             </span>
-            <h2 className="font-serif text-3xl font-bold text-navy-950">
+            <h2 className="font-serif text-3xl font-bold text-slate-900">
               Inmuebles en Málaga
             </h2>
           </div>
 
           {/* Controls */}
           <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-semibold">
+            <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-semibold shadow-sm">
               <ArrowUpDown className="w-3.5 h-3.5 text-slate-400" />
               <select
                 value={sortBy}
@@ -52,11 +52,11 @@ export default function PropertyCatalog({ filters, setFilters, onSelectMortgageP
               </select>
             </div>
 
-            <div className="bg-white border border-slate-200 rounded-xl p-1 flex items-center">
+            <div className="bg-white border border-slate-200 rounded-xl p-1 flex items-center shadow-sm">
               <button
                 onClick={() => setViewMode('grid')}
                 className={`p-1.5 rounded-lg text-xs font-semibold flex items-center gap-1 transition-all ${
-                  viewMode === 'grid' ? 'bg-navy-950 text-white' : 'text-slate-500'
+                  viewMode === 'grid' ? 'bg-red-600 text-white' : 'text-slate-500'
                 }`}
               >
                 <LayoutGrid className="w-4 h-4" />
@@ -64,7 +64,7 @@ export default function PropertyCatalog({ filters, setFilters, onSelectMortgageP
               <button
                 onClick={() => setViewMode('map')}
                 className={`p-1.5 rounded-lg text-xs font-semibold flex items-center gap-1 transition-all ${
-                  viewMode === 'map' ? 'bg-navy-950 text-white' : 'text-slate-500'
+                  viewMode === 'map' ? 'bg-red-600 text-white' : 'text-slate-500'
                 }`}
               >
                 <MapIcon className="w-4 h-4" />
@@ -75,11 +75,11 @@ export default function PropertyCatalog({ filters, setFilters, onSelectMortgageP
 
         {/* Map view mock if active */}
         {viewMode === 'map' && (
-          <div className="bg-navy-900 rounded-2xl p-6 border border-navy-800 text-white mb-10">
-            <h3 className="font-serif text-xl font-bold mb-4 flex items-center gap-2">
-              <MapIcon className="w-5 h-5 text-gold-400" /> Mapa de Málaga Capital
+          <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800 text-white mb-10 shadow-xl">
+            <h3 className="font-serif text-xl font-bold mb-4 flex items-center gap-2 text-white">
+              <MapIcon className="w-5 h-5 text-red-500" /> Mapa de Málaga Capital
             </h3>
-            <div className="relative w-full h-80 bg-navy-950 rounded-xl overflow-hidden flex items-center justify-center border border-navy-800">
+            <div className="relative w-full h-80 bg-slate-950 rounded-xl overflow-hidden flex items-center justify-center border border-slate-800">
               <img
                 src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1400&q=80"
                 alt="Mapa de Málaga"
@@ -89,7 +89,7 @@ export default function PropertyCatalog({ filters, setFilters, onSelectMortgageP
                 <div
                   key={prop.id}
                   style={{ top: `${30 + (idx * 12)}%`, left: `${25 + (idx * 14)}%` }}
-                  className="absolute cursor-pointer bg-gold-500 text-navy-950 font-bold text-xs px-2.5 py-1 rounded-full shadow-lg border border-white hover:scale-110 transition-transform"
+                  className="absolute cursor-pointer bg-red-600 text-white font-bold text-xs px-2.5 py-1 rounded-full shadow-lg border border-white hover:scale-110 transition-transform"
                   onClick={() => setSelectedProperty(prop)}
                 >
                   {prop.price.toLocaleString()} €
@@ -99,65 +99,84 @@ export default function PropertyCatalog({ filters, setFilters, onSelectMortgageP
           </div>
         )}
 
-        {/* Property Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProperties.map((prop) => (
-            <div
-              key={prop.id}
-              className="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
+        {/* NO RESULTS FOUND MESSAGE */}
+        {filteredProperties.length === 0 ? (
+          <div className="bg-white rounded-3xl p-12 text-center border border-slate-200 shadow-md max-w-md mx-auto my-12">
+            <Search className="w-12 h-12 text-red-600 mx-auto mb-3" />
+            <h3 className="font-serif text-lg font-bold text-slate-900 mb-2">
+              No hay resultados disponibles en este momento
+            </h3>
+            <p className="text-slate-500 text-xs mb-6 leading-relaxed">
+              No se han encontrado inmuebles que coincidan con tus criterios de búsqueda. Prueba a cambiar la zona o el precio.
+            </p>
+            <button
+              onClick={() => setFilters({ transaction: 'comprar', type: 'todos', zone: 'Todas las zonas', maxPrice: '' })}
+              className="text-xs font-bold text-white red-gradient-bg px-6 py-3 rounded-xl shadow-md uppercase tracking-wider transition-all"
             >
-              {/* Image */}
-              <div className="relative h-60 overflow-hidden bg-slate-100">
-                <img
-                  src={prop.image}
-                  alt={prop.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider bg-navy-950/80 text-white px-2.5 py-1 rounded-md backdrop-blur-sm">
-                  {prop.badge}
-                </span>
-                <span className="absolute bottom-3 right-3 text-sm font-serif font-bold text-white bg-navy-950/90 px-3 py-1 rounded-lg border border-white/20">
-                  {prop.price.toLocaleString()} €
-                </span>
-              </div>
-
-              {/* Info */}
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                <div>
-                  <span className="text-xs font-semibold text-gold-600 flex items-center gap-1 mb-1">
-                    <MapPin className="w-3.5 h-3.5" /> {prop.zone}
+              Restablecer Filtros
+            </button>
+          </div>
+        ) : (
+          /* Property Grid */
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredProperties.map((prop) => (
+              <div
+                key={prop.id}
+                className="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col group"
+              >
+                {/* Image */}
+                <div className="relative h-60 overflow-hidden bg-slate-100">
+                  <img
+                    src={prop.image}
+                    alt={prop.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider bg-red-600 text-white px-2.5 py-1 rounded-md shadow-md">
+                    {prop.badge}
                   </span>
-                  <h3 className="font-serif text-lg font-bold text-navy-950 line-clamp-1 group-hover:text-gold-600 transition-colors">
-                    {prop.title}
-                  </h3>
-                </div>
-
-                {/* Specs */}
-                <div className="flex items-center justify-between text-xs text-slate-500 pt-3 border-t border-slate-100">
-                  <span className="flex items-center gap-1 font-medium">
-                    <BedDouble className="w-4 h-4 text-slate-400" /> {prop.bedrooms} hab
-                  </span>
-                  <span className="flex items-center gap-1 font-medium">
-                    <Bath className="w-4 h-4 text-slate-400" /> {prop.bathrooms} baños
-                  </span>
-                  <span className="flex items-center gap-1 font-medium">
-                    <Square className="w-4 h-4 text-slate-400" /> {prop.area} m²
+                  <span className="absolute bottom-3 right-3 text-sm font-serif font-bold text-slate-900 bg-white/95 px-3 py-1 rounded-lg border border-slate-200 shadow-md">
+                    {prop.price.toLocaleString()} €
                   </span>
                 </div>
 
-                {/* CTA */}
-                <button
-                  onClick={() => setSelectedProperty(prop)}
-                  className="w-full bg-navy-950 hover:bg-gold-500 hover:text-navy-950 text-white text-xs font-bold py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5"
-                >
-                  <Eye className="w-4 h-4" />
-                  <span>Ver Inmueble</span>
-                </button>
+                {/* Info */}
+                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                  <div>
+                    <span className="text-xs font-semibold text-red-600 flex items-center gap-1 mb-1">
+                      <MapPin className="w-3.5 h-3.5" /> {prop.zone}
+                    </span>
+                    <h3 className="font-serif text-lg font-bold text-slate-900 line-clamp-1 group-hover:text-red-600 transition-colors">
+                      {prop.title}
+                    </h3>
+                  </div>
 
+                  {/* Specs */}
+                  <div className="flex items-center justify-between text-xs text-slate-500 pt-3 border-t border-slate-100">
+                    <span className="flex items-center gap-1 font-medium">
+                      <BedDouble className="w-4 h-4 text-slate-400" /> {prop.bedrooms} hab
+                    </span>
+                    <span className="flex items-center gap-1 font-medium">
+                      <Bath className="w-4 h-4 text-slate-400" /> {prop.bathrooms} baños
+                    </span>
+                    <span className="flex items-center gap-1 font-medium">
+                      <Square className="w-4 h-4 text-slate-400" /> {prop.area} m²
+                    </span>
+                  </div>
+
+                  {/* CTA Button */}
+                  <button
+                    onClick={() => setSelectedProperty(prop)}
+                    className="w-full bg-slate-900 hover:bg-red-600 text-white text-xs font-bold py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 uppercase tracking-wider"
+                  >
+                    <Eye className="w-4 h-4" />
+                    <span>Ver Inmueble</span>
+                  </button>
+
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
       </div>
 

@@ -7,29 +7,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        gold: {
-          50: '#FDFBF4',
-          100: '#F3E7C4',
-          200: '#E6C575',
-          300: '#D7A747',
-          400: '#C5A059',
-          500: '#B89047',
-          600: '#9B7433',
-          700: '#7B5924',
-          800: '#5F421A',
-          900: '#462E12',
+        casaoro: {
+          50: '#FEF2F2',
+          100: '#FEE2E2',
+          200: '#FCA5A5',
+          300: '#F87171',
+          400: '#EF4444',
+          500: '#E53935',
+          600: '#D32F2F', // Official Casaoro Red
+          700: '#C62828',
+          800: '#B71C1C',
+          900: '#8E0000',
+          950: '#5C0000',
         },
-        navy: {
-          50: '#F0F4F8',
-          100: '#D9E2EC',
-          800: '#1C2541',
-          900: '#0B132B',
-          950: '#060B18',
-        },
-        sand: {
-          50: '#FDFBF7',
-          100: '#F8F6F0',
-          200: '#F1ECE1',
+        slate: {
+          950: '#0F172A',
         }
       },
       fontFamily: {
@@ -37,8 +29,7 @@ export default {
         serif: ['"Playfair Display"', 'serif'],
       },
       boxShadow: {
-        'gold-glow': '0 10px 30px -10px rgba(197, 160, 89, 0.3)',
-        'premium': '0 20px 40px -15px rgba(11, 19, 43, 0.12)',
+        'casaoro-glow': '0 10px 30px -10px rgba(211, 47, 47, 0.3)',
       }
     },
   },

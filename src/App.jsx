@@ -2,12 +2,8 @@ import React, { useState } from 'react';
 import PitchBanner from './components/PitchBanner';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import MarketStats from './components/MarketStats';
 import PropertyCatalog from './components/PropertyCatalog';
 import ValuationWizard from './components/ValuationWizard';
-import MortgageCalculator from './components/MortgageCalculator';
-import ServicesMLS from './components/ServicesMLS';
-import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import CookieConsent from './components/CookieConsent';
 
@@ -19,8 +15,6 @@ export default function App() {
     maxPrice: ''
   });
 
-  const [mortgageInitialPrice, setMortgageInitialPrice] = useState(350000);
-
   const handleSearchClick = () => {
     const catalogElem = document.getElementById('catalogo');
     if (catalogElem) {
@@ -28,56 +22,35 @@ export default function App() {
     }
   };
 
-  const handleSelectMortgagePrice = (price) => {
-    setMortgageInitialPrice(price);
-    const hipotecaElem = document.getElementById('hipoteca');
-    if (hipotecaElem) {
-      hipotecaElem.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-sand-50 selection:bg-gold-200 selection:text-navy-950">
+    <div className="min-h-screen flex flex-col font-sans bg-slate-50 selection:bg-red-100 selection:text-red-900">
       
-      {/* 1. Modo Presentación Commercial Pitch Header */}
+      {/* 1. Commercial Pitch Header Bar */}
       <PitchBanner />
 
-      {/* 2. Main Navbar */}
+      {/* 2. Clean Navbar with Official Logo */}
       <Navbar />
 
-      {/* 3. Hero Section with Search Filters */}
+      {/* 3. Hero Section with Prominent White & Red Searcher */}
       <Hero
         filters={filters}
         setFilters={setFilters}
         onSearch={handleSearchClick}
       />
 
-      {/* 4. Market Trust Metrics */}
-      <MarketStats />
-
-      {/* 5. Filterable Property Catalog */}
+      {/* 4. Simple & Modern Property Catalog Grid */}
       <PropertyCatalog
         filters={filters}
         setFilters={setFilters}
-        onSelectMortgagePrice={handleSelectMortgagePrice}
       />
 
-      {/* 6. Instant Property Valuation Wizard */}
+      {/* 5. Instant Home Valuation Wizard */}
       <ValuationWizard />
 
-      {/* 7. Interactive Mortgage Calculator */}
-      <MortgageCalculator initialPrice={mortgageInitialPrice} />
-
-      {/* 8. Casaoro Official Services */}
-      <ServicesMLS />
-
-      {/* 9. Contact & Office Location */}
-      <ContactSection />
-
-      {/* 10. Footer */}
+      {/* 6. Clean Mobile-Friendly Footer */}
       <Footer />
 
-      {/* 11. RGPD Cookie Consent Banner */}
+      {/* 7. RGPD Cookie Banner */}
       <CookieConsent />
 
     </div>
