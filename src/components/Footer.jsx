@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Col 1: High-Contrast Light Logo for Dark Footer */}
           <div className="space-y-4">
             <img
-              src="/images/logo_light.png"
+              src="./images/logo_light.png"
               alt="Casaoro Inmobiliaria Málaga"
               className="h-10 w-auto object-contain drop-shadow-md"
             />

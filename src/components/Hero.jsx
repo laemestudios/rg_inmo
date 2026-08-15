@@ -25,7 +25,7 @@ export default function Hero({ filters, setFilters, onSearch }) {
       {/* Background Image with Dark Vignette */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero.jpg"
+          src="./images/hero.jpg"
           alt="Inmuebles en Málaga"
           className="w-full h-full object-cover object-center transform scale-105 filter brightness-60"
         />

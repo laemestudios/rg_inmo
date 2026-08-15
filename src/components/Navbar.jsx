@@ -63,10 +63,10 @@ export default function Navbar({ onNavigate }) {
       }`}>
         <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
           
-          {/* Logo */}
+          {/* Logo with Relative Path for GitHub Pages */}
           <a href="#" className="flex items-center group">
             <img
-              src="/images/logo_transparent.png"
+              src="./images/logo_transparent.png"
               alt="Casaoro Inmobiliaria Málaga"
               className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
             />

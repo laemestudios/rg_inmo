@@ -19,11 +19,11 @@ export const PROPERTIES_DATA = [
     energyRating: "A",
     badge: "Exclusiva Casaoro",
     badgeColor: "bg-gold-500",
-    image: "/images/hero.jpg",
+    image: "./images/hero.jpg",
     gallery: [
-      "/images/hero.jpg",
-      "/images/piso_teatinos.jpg",
-      "/images/chalet_limonar.jpg"
+      "./images/hero.jpg",
+      "./images/piso_teatinos.jpg",
+      "./images/chalet_limonar.jpg"
     ],
     description: "Impresionante ático recién reformado con materiales de primerísima calidad frente a la playa de La Malagueta y el Puerto de Málaga. Dispone de una fantástica terraza orientada al sur de 35 m² con vistas abiertas al mar Mediterráneo y al Muelle Uno. Cocina de diseño totalmente equipada, amplio salón comedor de doble altura y suite principal con vestidor.",
     features: [
@@ -55,11 +55,11 @@ export const PROPERTIES_DATA = [
     energyRating: "A",
     badge: "Destacado",
     badgeColor: "bg-emerald-600",
-    image: "/images/chalet_limonar.jpg",
+    image: "./images/chalet_limonar.jpg",
     gallery: [
-      "/images/chalet_limonar.jpg",
-      "/images/hero.jpg",
-      "/images/piso_teatinos.jpg"
+      "./images/chalet_limonar.jpg",
+      "./images/hero.jpg",
+      "./images/piso_teatinos.jpg"
     ],
     description: "Exclusiva villa señorial ubicada en una de las zonas residenciales más prestigiosas de Málaga Capital. Construida sobre parcela de 750 m² con jardín consolidado, piscina desbordante y porche cubierto con barbacoa. Máxima privacidad y tranquilidad a escasos 5 minutos del centro histórico y la playa.",
     features: [
@@ -91,11 +91,11 @@ export const PROPERTIES_DATA = [
     energyRating: "B",
     badge: "Oportunidad",
     badgeColor: "bg-amber-600",
-    image: "/images/piso_teatinos.jpg",
+    image: "./images/piso_teatinos.jpg",
     gallery: [
-      "/images/piso_teatinos.jpg",
-      "/images/hero.jpg",
-      "/images/chalet_limonar.jpg"
+      "./images/piso_teatinos.jpg",
+      "./images/hero.jpg",
+      "./images/chalet_limonar.jpg"
     ],
     description: "Luminoso piso en urbanización cerrada con zonas infantiles, pista de pádel y gran piscina comunitaria. Consta de 3 amplios dormitorios, salón independiente con salida directa a terraza, cocina con lavadero y 2 baños completos (uno en suite). Incluye garaje y trastero.",
     features: [
@@ -130,8 +130,8 @@ export const PROPERTIES_DATA = [
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
     gallery: [
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
-      "/images/hero.jpg",
-      "/images/piso_teatinos.jpg"
+      "./images/hero.jpg",
+      "./images/piso_teatinos.jpg"
     ],
     description: "Espectacular inmueble señorial en pleno corazón de Málaga, con techos de 3.5m de altura, suelos hidráulicos originales restaurados y amplios balcones a la calle principal. Ideal como vivienda habitual de lujo o inversión de alta rentabilidad.",
     features: [
@@ -148,7 +148,7 @@ export const PROPERTIES_DATA = [
     title: "Ático en Alquiler Residencial en Carretera de Cádiz",
     type: "atico",
     transaction: "alquilar",
-    price: 1400, // €/mes
+    price: 1400,
     bedrooms: 2,
     bathrooms: 1,
     area: 85,
@@ -165,7 +165,7 @@ export const PROPERTIES_DATA = [
     image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
     gallery: [
       "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
-      "/images/piso_teatinos.jpg"
+      "./images/piso_teatinos.jpg"
     ],
     description: "Fantástico ático amueblado a 300 metros de la playa de la Misericordia. Cuenta con terraza descubierta de 20 m², cocina con electrodomésticos balay de gama alta y plaza de aparcamiento subterráneo. Listo para entrar a vivir.",
     features: [
@@ -199,7 +199,7 @@ export const PROPERTIES_DATA = [
     image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80",
     gallery: [
       "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80",
-      "/images/chalet_limonar.jpg"
+      "./images/chalet_limonar.jpg"
     ],
     description: "Amplio chalet independiente rodeado de colegios internacionales (Lycée Français, St. George) y zona comercial. Vistas panorámicas a la bahía de Málaga, jardín con césped natural y salón con chimenea de mármol.",
     features: [
