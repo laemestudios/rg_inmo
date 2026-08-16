@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AccessGate from './components/AccessGate';
 import PitchBanner from './components/PitchBanner';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -23,36 +24,38 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-slate-50 selection:bg-red-100 selection:text-red-900">
-      
-      {/* 1. Commercial Pitch Header Bar */}
-      <PitchBanner />
+    <AccessGate>
+      <div className="min-h-screen flex flex-col font-sans bg-slate-50 selection:bg-red-100 selection:text-red-900">
+        
+        {/* 1. Commercial Pitch Header Bar */}
+        <PitchBanner />
 
-      {/* 2. Clean Navbar with Official Logo */}
-      <Navbar />
+        {/* 2. Clean Navbar with Official Logo */}
+        <Navbar />
 
-      {/* 3. Hero Section with Prominent White & Red Searcher */}
-      <Hero
-        filters={filters}
-        setFilters={setFilters}
-        onSearch={handleSearchClick}
-      />
+        {/* 3. Hero Section with Prominent White & Red Searcher */}
+        <Hero
+          filters={filters}
+          setFilters={setFilters}
+          onSearch={handleSearchClick}
+        />
 
-      {/* 4. Simple & Modern Property Catalog Grid */}
-      <PropertyCatalog
-        filters={filters}
-        setFilters={setFilters}
-      />
+        {/* 4. Simple & Modern Property Catalog Grid */}
+        <PropertyCatalog
+          filters={filters}
+          setFilters={setFilters}
+        />
 
-      {/* 5. Instant Home Valuation Wizard */}
-      <ValuationWizard />
+        {/* 5. Instant Home Valuation Wizard */}
+        <ValuationWizard />
 
-      {/* 6. Clean Mobile-Friendly Footer */}
-      <Footer />
+        {/* 6. Clean Mobile-Friendly Footer */}
+        <Footer />
 
-      {/* 7. RGPD Cookie Banner */}
-      <CookieConsent />
+        {/* 7. RGPD Cookie Banner */}
+        <CookieConsent />
 
-    </div>
+      </div>
+    </AccessGate>
   );
 }
